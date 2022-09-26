@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/login.css' %}">{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with project_id=project_id undone='undone' user='user' username=username %}   
+
+<main class="flex center w-full pad1">
+    <div class=" center flex flex-col">
+        <h2 class="pad1 bg2 mt-2 ">
+         <input type="text" value="{{ request.META.HTTP_HOST }}/invite_accept/{{Invite_Link.id}}" id="myInput">   
+        </h2>
+        <button class="btn-lg link" onclick="CopyLink()">Copy Link</button>
+    </div>
+</main>
+
+{% block script %}
+<script>
+function CopyLink() {
+    var copyText = document.getElementById('myInput')
+    copyText.select();
+    document.execCommand('copy')
+  }
+
+</script>
+{% endblock %}
+
+{% endblock %}

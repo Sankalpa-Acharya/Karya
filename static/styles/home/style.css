@@ -1,0 +1,25 @@
+ul li{
+    margin-right: 2rem;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+nav{
+    padding: 2rem 1.5rem;
+}
+
+main{
+    height: 77vh;
+}
+
+
+main > p{
+    margin-top: .5rem;
+}
+
+main > a{
+    margin-top: 2rem;
+    
+}

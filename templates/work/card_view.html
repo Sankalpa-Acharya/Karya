@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/dashboard/view.css' %}">{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with project_id=project_id undone='undone' user='user' username=username %}   
+
+    <main class="flex flex-col">
+        <header>
+            <h1>{{card.title}}</h1>
+            <p>Created at: {{card.created_at}}</p>
+            <a href="" class="{{card.status}} link">{{card.status}}</a>
+    </header>
+        <section>
+            <pre class="description pad1 rounded">{{card.description}}</pre>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="button">
+                    {% for field in form %}
+                    {{field}}
+                    {% endfor %}
+                    <button type="submit" class="btn-lg ml-1" >Submit</button>
+                </div>
+            </form>
+        </section>
+        <div class="timeline">
+            <h2>Timeline</h2>
+            <div class="side-bar">
+            <div class="timeline-area">
+
+                {% for timeline in card_timeline %}
+
+                <div class="time pad1">
+                    <h2>{{timeline.user.username}}</h2>
+                    <p class="">{{timeline.date}}</p>
+                    <p class="{{timeline.status}}">{{timeline.status}}</p>
+                </div>
+             {% endfor %}
+
+            </div>
+        </div>
+        </div>
+        <div class="messages pad1">
+            {% if messages %}
+                {% for message in messages %}
+        
+                    {% include 'include/alert.html' %}
+        
+                {% endfor %}
+            {% endif %}
+            </div>
+        
+        
+    </main>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Sorry !{% endblock %}
+{% block css %}
+<style>
+    .container {
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container flex flex-col">
+    {% if message %}
+    <h1>{{message}}</h1>
+    <p>{{message_description}}</p>
+    {% else %}
+    <h1>Page not Found</h1>
+    <p>is this what you are looking for ?</p>
+    {% endif %}
+</div>
+{% endblock %}

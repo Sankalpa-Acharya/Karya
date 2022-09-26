@@ -1,0 +1,53 @@
+ul li{
+    margin-right: 2rem;
+}
+
+a{
+    text-decoration: none;
+    color: #ececec;
+}
+
+body{
+
+    background-color: #0e1525;
+    color: #ececec;
+    font-family: 'IBM Plex Sans', sans-serif;
+    
+}
+
+.container{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.block{
+
+    padding: 2rem;
+    background-color: #1c2333;
+    margin: 1rem;
+    display: flex;
+    cursor:pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+    border-radius: 10px;
+    transition: .5s;
+
+}
+.block:hover:first-child{
+    transform: skewY(7deg);
+}
+.block:hover:nth-child(2){
+    transform: skewY(-7deg);
+}
+.block a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}

@@ -1,0 +1,215 @@
+nav{
+    height: 77px;
+    border-bottom: 1px solid white;
+}
+
+main{
+    height: calc(100vh - 77px);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+body{
+    overflow-x: hidden;
+}
+
+main aside{
+    height: 100%;
+    padding:1rem  .5rem;
+    width: 300px;
+}
+.btn-transparent{
+    border: none;
+    transition: none;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: .8rem;
+    font-size: 1.11rem;
+}
+
+.btn-transparent:hover{
+    background-color: #272c37;
+    border: none;
+}
+
+
+section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    min-height: fit-content;
+    max-height: 100%;
+    height: fit-content;
+    overflow: auto;
+    gap: 1rem;
+    
+
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    height: 150px;
+    border: 2px solid magenta;
+    background-color: #1e293b;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.501);
+    transition: .3s;
+}
+
+.card:hover{
+    background-color: #16263f;
+}
+
+.card img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile .tags{
+    display: flex;
+    height: 20px;
+    overflow: hidden;
+}
+
+
+.profile .working{
+    font-size: .6rem;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,83,166,1) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+}
+
+.profile .done{
+    font-size: .6rem;
+    background: radial-gradient(circle, rgb(7, 150, 78) 0%, rgb(11, 132, 96) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+    content: 'completed';
+}
+.profile .blocked{
+    font-size: .6rem;
+    background: radial-gradient(circle, rgb(200, 40, 8) 0%, rgb(192, 30, 12) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+    content: 'completed';
+}
+.profile .important{
+    font-size: .8rem;
+    background: radial-gradient(circle, rgb(181, 35, 6) 0%, rgb(192, 30, 12) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+    content: 'completed';
+}
+.profile .undone{
+    font-size: .6rem;
+    background: radial-gradient(circle, rgb(149, 8, 200) 0%, rgb(119, 6, 127) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+    content: 'completed';
+}
+.profile .today{
+    font-size: .6rem;
+    background: radial-gradient(circle, rgb(7, 192, 158) 0%, rgb(6, 127, 127) 100%);
+    width: fit-content;
+    padding:.1rem .5rem;
+    border-radius: 5px;
+    margin-top:.3rem;
+    margin-right:.3rem;
+    content: 'completed';
+}
+
+nav i{
+    margin: 0;
+    margin-left: 10px;
+}
+
+.info{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    margin: 0 auto;
+    width: 300px;
+    height: 250x;
+    border-radius: 10px;
+    background-color: var(--bg2);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    cursor: pointer;
+    
+}
+
+
+
+.messages{ 
+    position:absolute;
+    top: 55px;
+    right: 0;
+    overflow: hidden;
+}
+.message{
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 1s ease-in-out;
+    position: relative;
+    margin-bottom: 1rem;
+    animation: fadeInAnimation 1s;
+    
+}
+
+.remove{
+    transition: 1s ease-in-out;
+    right: -300px;
+}
+
+.none{
+    display: none;
+}
+
+.btn-sm{
+    padding: .5rem .6rem;
+}
+
+@keyframes fadeInAnimation{
+
+0% {
+    left: 22rem;
+    opacity: 0;
+}
+100% {
+    left: 0;
+    opacity: 1;
+}
+
+}

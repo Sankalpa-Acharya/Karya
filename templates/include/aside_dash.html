@@ -1,0 +1,14 @@
+<aside class="bg2 flex flex-col">
+    <a href="{% url 'addcard' project_id %}" class="link btn-sm w-full center">Add Todo <i class="fa-solid fa-plus"></i></a>
+    <a href="{% url 'invite' project_id %}" class="link btn-sm w-full mt-1 cemter">Invite Member's <i class="fa-solid fa-plus"></i></a>
+
+    <div class="buttons flex flex-col w-full mt-2">
+        <a href="{% url 'dashboard'  project_id undone %}" class="link btn-transparent w-full"><i class="fa-solid fa-clipboard-list"></i>Todo</a>
+        <a href="{% url 'dashboard' project_id  today %}" class="link btn-transparent w-full"><i class="fa-solid fa-calendar-day"></i> Today</a>
+        <a href="{% url 'dashboard' project_id  wip %}" class="link btn-transparent w-full"><i class="fa-solid fa-spinner"></i> Work in Progess</a>
+        <a href="{% url 'dashboard' project_id  blocked %}" class="link btn-transparent w-full"><i class="fa-solid fa-lock"></i> Blocked</a>
+        <a href="{% url 'dashboard' project_id  done %}" class="link btn-transparent w-full"><i class="fa-solid fa-check"></i> Complete</a>
+        <a href="{% url 'dashboard' project_id  members %}" class="link btn-transparent w-full"><i class="fa-solid fa-people-group"></i> Members</a>
+        <a href="{% url 'projects' %}" class="link btn-transparent w-full"><i class="fa-solid fa-circle-info"></i> Projects</a>
+    </div>
+</aside>

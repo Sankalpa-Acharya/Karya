@@ -1,0 +1,11 @@
+<div class="card shadow-lg" onclick="location.href=`{% url 'cardview' project_id card.slug %}`">
+    <div class="profile flex">
+        <div class="name">
+            <p class="name bold">{{title|truncatechars:50}}</p>
+            <div class="tags">
+                <p class="{{tag}}">{{tag}}</p>
+            </div>
+        </div>
+    </div>
+    <span class="des">{{description|truncatechars:95}}</span>
+</div>

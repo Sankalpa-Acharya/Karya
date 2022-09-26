@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/style.css' %}">{% endblock %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block body %}
+
+{% include 'include/home_navbar.html' %}
+
+<main class="center flex-col pad1 ">
+    <h1 class="text-shadow uppercase">Take, Work ,Complete <br> Visualize Your Work</h1>
+    <p class="sub-title"></p>
+    <a href="{% url 'login' %}" class="link btn-lg mt-1">Start Work</a>
+</main>
+<div class="messages pad1">
+    {% if messages %}
+        {% for message in messages %}
+
+            {% include 'include/alert.html' %}
+
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

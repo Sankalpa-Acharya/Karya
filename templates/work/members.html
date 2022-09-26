@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/dashboard/members.css' %}">{% endblock %}
+
+{% block title %}Members{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with project_id=project_id undone='undone' %}  
+<main class="flex flex-col">
+        <h2>Our Members</h2>
+        {% for member in members %}
+
+        <div class="card pad1 mt-1 shadow-lg">
+            <div class="profile flex">
+                {% if member.profile_pic %}
+                <img class="radius" src="{{member.profile_pic.url}}" height="50px" width="50px" alt="">
+                {% endif %}
+                <a href="" class="link"><h2 class="ml-1">{{member.username}}</h2></a>
+                        {% if member.twitter %}
+                        <a href="{{member.twitter}}" class="link"><i class="fa-brands fa-twitter"></i></a>
+                        {% endif %}
+                        {% if member.linkedin %}
+                        <a href="{{member.linkedin}}" class="link"><i class="fa-brands fa-linkedin"></i></a>
+                        {% endif %}
+                        {% if member.github %}
+                        <a href="{{member.github}}" class="link"><i class="fa-brands fa-github"></i></a>
+                        {% endif %}
+            </div>
+            <p class="mt-1">{{member.bio}}</p>
+        </div>
+         {% endfor %}
+    </main>
+    <div class="messages pad1">
+        {% if messages %}
+            {% for message in messages %}
+    
+                {% include 'include/alert.html' %}
+    
+            {% endfor %}
+        {% endif %}
+        </div>
+{% endblock %}

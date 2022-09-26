@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/project.css' %}">{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+<main class="center flex flex-col">
+    <h1 class="mb-1">My Projects</h1>
+    {% for content in project %}
+
+      <div class="project pad1">  <h2><a href="{% url 'dashboard' content.id status  %}" class="link">{{content.title}}</a></h2></div>
+      {% endfor %}
+      <div class="project pad1">  <h2><a href="{% url 'create_project' %}" class="link"><i class="fa-solid fa-plus"></i> Create Project</a></h2></div>
+    </main>
+
+    <div class="messages pad1">
+        {% if messages %}
+            {% for message in messages %}
+    
+                {% include 'include/alert.html' %}
+    
+            {% endfor %}
+        {% endif %}
+        </div>
+{% endblock %}

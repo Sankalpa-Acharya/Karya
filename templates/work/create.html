@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/create.css' %}">{% endblock %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+
+{% include 'include/home_navbar.html' %}    
+
+<div class="container">
+
+    <div class="block">
+        <a href="{% url 'singup' %}">
+            <h1>🏣</h1>
+            <h1>Root Account</h1>
+            <p>I want to dashboard for my team</p>
+        </a>
+    </div>
+
+    <div class="block">
+        <a href="{% url 'login' %}">
+            <h1>💁</h1>
+            <h1>I have Team</h1>
+            <p>I'm member of registered team</p>
+        </a>
+    </div>
+
+</div>
+{% endblock %}

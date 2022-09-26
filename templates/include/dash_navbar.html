@@ -1,0 +1,7 @@
+<nav class="flex space-btn pad1 bg2 al-center">
+    <a href="{% url 'dashboard' project_id undone  %}" class="link"><h3>kārya(कार्य)</h3></a>
+    <div class="buttons flex">
+       <a href="{% url 'edit_profile' project_id %}"><img src="{{profile_pic.url}}" class="center mr-2 shadow-lg" alt="" width="40px" height="40px" style="border-radius: 50%;position:relative;object-fit: cover; border: 1px solid whitesmoke;"></a>
+        <a href="{% url 'logout' %}" class="link btn-sm center">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</nav>

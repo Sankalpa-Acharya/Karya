@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/login.css' %}">{% endblock %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block body %}
+
+
+
+<main class="pad1 mt-1">
+    <form action="" class="flex flex-col w-full center" novalidate method="POST">
+        <h2 class="mb-1">Create Project</h2>
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="flex flex-col">
+            {{field.label}}
+            {{field}}
+
+        </div>
+        <span class="erros mb-1 w-23 ml-2">
+            {{form.errors}}
+        </span>
+        {% endfor %}
+        <button class="btn">Submit</button>
+    </form>
+</main>
+    <div class="messages pad1">
+        {% if messages %}
+            {% for message in messages %}
+    
+                {% include 'include/alert.html' %}
+    
+            {% endfor %}
+        {% endif %}
+        </div>
+{% endblock %}

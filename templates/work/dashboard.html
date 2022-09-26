@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/dashboard/dashboard.css' %}">{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with project_id=project_id undone='undone' user='user' username=username %}   
+    <main>
+        {% include 'include/aside_dash.html' with project_id=project_id undone='undone' done='done' members='members' wip='working'  today='today' blocked='blocked' %}
+        <section class="pad1 ">
+            {% for card in cards %}
+          {% include 'include/product_logs.html' with title=card.title  description=card.description tag=card.status %}
+            {% endfor %}
+        </section>
+    </main>
+    <div class="messages pad1">
+    {% if messages %}
+        {% for message in messages %}
+
+            {% include 'include/alert.html' %}
+
+        {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+{% endblock %}

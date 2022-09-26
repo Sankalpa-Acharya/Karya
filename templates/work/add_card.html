@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/home/login.css' %}">{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with project_id=project_id undone='undone' user='user' username=username %} 
+
+
+<main class="pad1 mt-1">
+    <form action="" class="flex flex-col w-full center" novalidate method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="flex flex-col">
+            {{field.label}}
+            {{field}}
+
+        </div>
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+        <span class="erros mb-1 w-23 ml-2">
+            {{form.non_field_errors}}
+        </span>
+        {% endif %}
+
+        <button class="btn">Submit</button>
+    </form>
+</main>
+    <div class="messages pad1">
+        {% if messages %}
+            {% for message in messages %}
+    
+                {% include 'include/alert.html' %}
+    
+            {% endfor %}
+        {% endif %}
+        </div>
+{% endblock %}

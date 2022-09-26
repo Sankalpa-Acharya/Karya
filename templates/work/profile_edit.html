@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'styles/dashboard/profile_edit.css' %}">{% endblock %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+
+{% include 'include/dash_navbar.html' with username=username  undone='undone' %}   
+
+    <main class="flex flex-col">
+        <form action="{% url 'picchange' project_id %}" method="POST" class="flex flex-col w-full center" enctype="multipart/form-data">
+        <div class="profile flex">
+                {% csrf_token %}
+            {% if user.profile_pic %}
+            <img src="{{user.profile_pic.url}}" height="70px" width="70px" class="shadow-lg" alt="">
+            {% else %}
+            <img src="https://pro2-bar-s3-cdn-cf3.myportfolio.com/8ee9e0df6a57e6cb08ce8298364354c5/e01d8c8ac8d02856d9ca18a0_rw_1920.jpg?h=cd2ded3063a9f9cc22079f881abdf8f9" height="70px" width="70px" class="shadow-lg" alt="">
+            {% endif %}
+            <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic" class="ml-1">
+            <button type="submit" class="btn-sm link ml-1">Submit</button>
+        </div>
+    </form>
+            <form action="" class="flex flex-col w-full center mt-2" method="POST" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+               <div class="field flex flex-col">
+                <label for="" class="mr-1">{{field.label}}</label>
+                {{field}}
+                <span class="error-">{{field.errors}}</span>
+            </div>
+            {% endfor %}
+            <button class="btn-lg link mt-1">Submit</button>
+            </form>
+    </main>
+    <div class="messages pad1">
+        {% if messages %}
+            {% for message in messages %}
+    
+                {% include 'include/alert.html' %}
+    
+            {% endfor %}
+        {% endif %}
+        </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/home/login.css' %}">{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+{% include 'include/home_navbar.html' %}
+
+<div class="container">
+    <h2>Create Account</h2>
+    <form action="" class="flex flex-col w-full center" novalidate method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="flex flex-col w-23">
+        {{field.label}}
+        {{field}}
+
+        {% if field.errors %}
+        <span class="erros mb-1">
+
+            {{field.errors}}
+        </span>
+        {% endif %}
+    </div>
+        {% endfor %}
+
+        <button class="btn mr-2">login</button>
+    </form>
+    <a href="{% url 'login' %}" class="link mt-1">Already have account ?Login</a>
+</div>
+<div class="messages pad1">
+    {% if messages %}
+        {% for message in messages %}
+
+            {% include 'include/alert.html' %}
+
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}
