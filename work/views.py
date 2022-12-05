@@ -222,10 +222,10 @@ class InviteView(View):
     @method_decorator(login_required(login_url='/account/login'))
     def get(self, request, pid):
         project = Project.objects.get(id=pid)
-        # Link = InviteLink.objects.filter(project=project, user=request.user)
-        if len(Link) > 0:
-            Link = Link[0]
-        else:
+        try:
+            if len(Link) > 0:
+                Link = Link[0]
+        except:
             Link = InviteLink.objects.create(
                 project=project, user=request.user)
         context = {

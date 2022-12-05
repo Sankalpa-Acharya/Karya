@@ -16,7 +16,7 @@ Karya is inspired from kanban, Kanban is a popular framework use to implement ag
 - Clone this repository ``` git clone https://github.com/Sankalpa-Acharya/Karya ```
 - Go inside the folder ``` cd Karya ```
 - Run: ``` pip install -r requirements.txt ```
-- Run: ``` python manage.py makemigrations ```
+- Run: ``` python manage.py makemigrations work ```
 - Run: ``` python manage.py migrate ```
 - Run: ``` python manage.py runserver ```
 - Visit this url in your browser ``` 127.0.0.1:8000 ``` 
